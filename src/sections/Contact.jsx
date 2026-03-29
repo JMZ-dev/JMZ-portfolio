@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
+import { LangContext } from '../App.jsx';
 
 // ─── Formspree setup (free, 50 submissions/month) ────────────────────────────
 // 1. Go to https://formspree.io and sign up with cazawi0905@gmail.com
@@ -9,6 +10,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqlnjra';
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
+  const { t } = useContext(LangContext);
   const formRef = useRef(null);
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
@@ -46,24 +48,24 @@ export default function Contact() {
     <section id="contact" className="section">
       <div className="container">
         <div className="sec-header">
-          <span className="sec-label">CONTACT</span>
-          <h2 className="sec-title">START A PROJECT</h2>
+          <span className="sec-label">{t('contact')}</span>
+          <h2 className="sec-title">{t('startProject')}</h2>
         </div>
 
         <div className="contact-grid">
           <div className="contact-form-wrap">
             <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
               <div className="field">
-                <label className="mono">NAME</label>
-                <input name="from_name" type="text" placeholder="YOUR NAME" required />
+                <label className="mono">{t('name')}</label>
+                <input name="from_name" type="text" placeholder={t('yourName')} required />
               </div>
               <div className="field">
-                <label className="mono">EMAIL</label>
-                <input name="from_email" type="email" placeholder="YOUR EMAIL" required />
+                <label className="mono">{t('email')}</label>
+                <input name="from_email" type="email" placeholder={t('yourEmail')} required />
               </div>
               <div className="field">
-                <label className="mono">PROJECT</label>
-                <textarea name="message" rows={5} placeholder="DESCRIBE YOUR PROJECT" required />
+                <label className="mono">{t('project')}</label>
+                <textarea name="message" rows={5} placeholder={t('describeProject')} required />
               </div>
               <button
                 className={`submit-btn mono${status === 'sent' ? ' sent' : ''}${status === 'error' ? ' error' : ''}`}
