@@ -2,8 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { LangContext } from "../App.jsx";
 
-const formatTime = (d) =>
-  d.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+const formatTime = (d) => d.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
 export default function Topbar({ onOpenMenu }) {
   const { lang, setLang } = useContext(LangContext);

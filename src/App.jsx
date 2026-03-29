@@ -16,7 +16,7 @@ import Footer from "./sections/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LangContext = createContext();
+export const LangContext = createContext();
 
 const translations = {
   en: {
@@ -107,7 +107,7 @@ const translations = {
   }
 };
 
-function useLang() {
+export function useLang() {
   const context = useContext(LangContext);
   if (!context) {
     throw new Error('useLang must be used within LangProvider');
