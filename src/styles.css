@@ -133,6 +133,23 @@ img { display: block; }
 }
 .menu-btn:hover { color: var(--text); }
 
+.lang-toggle {
+  position: relative;
+  padding: 0 24px;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted2);
+  min-width: 48px;
+}
+
+.lang-toggle span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 /* HERO */
 .hero {
   min-height: 100vh;
