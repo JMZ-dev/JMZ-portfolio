@@ -61,7 +61,6 @@ const translations = {
     yourEmail: "YOUR EMAIL",
     project: "PROJECT",
     describeProject: "DESCRIBE YOUR PROJECT",
-    // ... more to add later
   },
   fr: {
     // Hero
@@ -97,13 +96,22 @@ const translations = {
       TOOLING: ['Git', 'GitHub', 'Vercel', 'Figma', 'VS Code', 'Docker', 'Postman'],
       DESIGN: ['UI/UX Systems', 'Motion Design', 'Typography', 'Design Tokens', 'Responsive Layout'],
     },
-    // ... more
+    contact: "CONTACT",
+    startProject: "LANCER UN PROJET",
+    name: "NOM",
+    yourName: "VOTRE NOM",
+    email: "EMAIL",
+    yourEmail: "VOTRE EMAIL",
+    project: "PROJET",
+    describeProject: "DÉCRIVEZ VOTRE PROJET",
   }
 };
 
 function useLang() {
   const context = useContext(LangContext);
-  if (!context) throw new Error('useLang must be used within LangProvider');
+  if (!context) {
+    throw new Error('useLang must be used within LangProvider');
+  }
   return context;
 }
 
@@ -113,12 +121,12 @@ export default function App() {
   const [lang, setLang] = useState('en');
 
   const reduceMotion = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
 
   useEffect(() => {
@@ -126,12 +134,12 @@ export default function App() {
 
     if (!reduceMotion) {
       gsap.fromTo(
-        ".panel, .card, .hero-card",
+        '.panel, .card, .hero-card',
         { y: 18, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.85, stagger: 0.06, ease: "power3.out" }
+        { y: 0, opacity: 1, duration: 0.85, stagger: 0.06, ease: 'power3.out' }
       );
 
-      const items = gsap.utils.toArray(".panel, .card");
+      const items = gsap.utils.toArray('.panel, .card');
       items.forEach((el) => {
         gsap.fromTo(
           el,
@@ -140,8 +148,8 @@ export default function App() {
             y: 0,
             opacity: 1,
             duration: 0.75,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 86%" },
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 86%' },
           }
         );
       });
@@ -158,34 +166,31 @@ export default function App() {
         {!ready && <Preloader onDone={() => setReady(true)} />}
       </AnimatePresence>
 
-<LangContext.Provider value={{ lang, setLang, t: (key) => translations[lang][key] || key }}>
-  {ready && (
-    <>
-      <Topbar onOpenMenu={() => setMenuOpen(true)} />
-      <AnimatePresence>
-        {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}
-      </AnimatePresence>
-    </>
-  )}
-
-          <main style={{ position: "relative", zIndex: 1 }}>
-            <Hero />
-            <div className="ticker" role="presentation" aria-hidden="true">
-              <div className="ticker-track">
-                {(() => {
-                  const t = "REACT · FLUTTERFLOW · THREE.JS · GSAP · FRAMER MOTION · NODE.JS · UI/UX · FIGMA · MOTION DESIGN · PERFORMANCE · MOBILE FIRST · CLEAN CODE · ";
-                  return t + t;
-                })()}
+      <LangContext.Provider value={{ lang, setLang, t: (key) => translations[lang][key] || key }}>
+        {ready && (
+          <>
+            <Topbar onOpenMenu={() => setMenuOpen(true)} />
+            <AnimatePresence>
+              {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}
+            </AnimatePresence>
+            <main style={{ position: 'relative', zIndex: 1 }}>
+              <Hero />
+              <div className="ticker" role="presentation" aria-hidden="true">
+                <div className="ticker-track">
+                  {(() => {
+                    const t = 'REACT · FLUTTERFLOW · THREE.JS · GSAP · FRAMER MOTION · NODE.JS · UI/UX · FIGMA · MOTION DESIGN · PERFORMANCE · MOBILE FIRST · CLEAN CODE · ';
+                    return t + t;
+                  })()}
+                </div>
               </div>
-            </div>
-            <About />
-            <Work />
-            <Contact />
-            <Footer />
-          </main>
-        </> 
-      )}
-    </LangContext.Provider>
-  )}
-
-
+              <About />
+              <Work />
+              <Contact />
+              <Footer />
+            </main>
+          </>
+        )}
+      </LangContext.Provider>
+    </>
+  );
+}
