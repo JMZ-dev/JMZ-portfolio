@@ -1,11 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LangContext } from "../App.jsx";
 
-const formatTime = (d) => d.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+const formatTime = (d) =>
+  d.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
 export default function Topbar({ onOpenMenu }) {
-  const { lang, setLang } = useContext(LangContext);
   const [time, setTime] = useState(formatTime(new Date()));
   const [active, setActive] = useState("work");
   const [scrolled, setScrolled] = useState(false);
@@ -88,15 +87,7 @@ export default function Topbar({ onOpenMenu }) {
             CV
           </a>
           <motion.button className="menu-btn" onClick={onOpenMenu} whileTap={{ scale: 0.97 }}>
-            {lang === 'en' ? 'MENU' : 'MENU'}
-          </motion.button>
-          <motion.button 
-            className="lang-toggle mono" 
-            onClick={() => setLang(lang === 'en' ? 'fr' : 'en')}
-            whileTap={{ scale: 0.97 }}
-            style={{ borderLeft: '1px solid var(--line)', paddingLeft: '1rem' }}
-          >
-            <span>{lang === 'en' ? 'FR' : 'EN'}</span>
+            MENU
           </motion.button>
         </div>
       </div>

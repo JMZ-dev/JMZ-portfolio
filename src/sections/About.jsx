@@ -1,37 +1,42 @@
-import { useState, useContext } from 'react';
-import { LangContext } from '../App.jsx';
+import { useState } from 'react';
 
-
+const stacks = {
+  FRONTEND: ['React', 'Next.js', 'Vite', 'FlutterFlow', 'Tailwind CSS', 'Framer Motion', 'GSAP', 'Three.js'],
+  BACKEND:  ['Node.js', 'Express', 'FastAPI', 'Python', 'REST APIs', 'PostgreSQL', 'Firebase'],
+  TOOLING:  ['Git', 'GitHub', 'Vercel', 'Figma', 'VS Code', 'Docker', 'Postman'],
+  DESIGN:   ['UI/UX Systems', 'Motion Design', 'Typography', 'Design Tokens', 'Responsive Layout'],
+};
 
 export default function About() {
-  const { t, lang } = useContext(LangContext);
   const [cat, setCat] = useState('FRONTEND');
 
   return (
     <section id="about" className="section">
       <div className="container">
         <div className="sec-header">
-          <span className="sec-label">{t('about')}</span>
-          <h2 className="sec-title">{t('skillsStack')}</h2>
+          <span className="sec-label">ABOUT</span>
+          <h2 className="sec-title">SKILLS &amp; STACK</h2>
         </div>
 
         <div className="skills-grid">
           <div className="skills-left">
-            <h3 className="skills-title">{t('disciplinePerformanceClarity')}</h3>
+            <h3 className="skills-title">DISCIPLINE.<br/>PERFORMANCE.<br/>CLARITY.</h3>
             <p className="skills-desc">
-              {t('skillsDesc')}
+              I approach every project with engineering rigour — clean architecture,
+              readable code, and intentional UX. I specialise in building fast,
+              accessible digital products that scale.
             </p>
             <ul className="skills-principles">
-              <li className="principle">{t('principles.performance')}</li>
-              <li className="principle">{t('principles.systemDesign')}</li>
-              <li className="principle">{t('principles.motionDriven')}</li>
-              <li className="principle">{t('principles.crossPlatform')}</li>
+              <li className="principle">PERFORMANCE_FIRST &mdash; no bloat, no shortcuts</li>
+              <li className="principle">SYSTEM_DESIGN &mdash; composable, typed, documented</li>
+              <li className="principle">MOTION_DRIVEN &mdash; animation as communication</li>
+              <li className="principle">CROSS_PLATFORM &mdash; web, mobile, desktop parity</li>
             </ul>
           </div>
 
           <div className="skills-right">
             <div className="stack-categories">
-              {Object.keys(t('stacks')).map((k) => (
+              {Object.keys(stacks).map((k) => (
                 <button
                   key={k}
                   className={`stack-cat-btn${cat === k ? ' active' : ''}`}
