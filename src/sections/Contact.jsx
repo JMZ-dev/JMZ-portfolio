@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 
 // ─── Formspree setup (free, 50 submissions/month) ────────────────────────────
-// 1. Go to https://formspree.io and sign up with cazawi0905@gmail.com
+// 1. Go to https://formspree.io and sign up with zouheirjd@gmail.com
 // 2. Click "New Form", name it anything, copy the endpoint URL
 // 3. Replace the value below with your endpoint, e.g.:
 //    'https://formspree.io/f/xabcdefg'
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqlnjra';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqlbaaq';
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
@@ -78,8 +78,8 @@ export default function Contact() {
           <div className="contact-info-wrap">
             <div className="contact-block">
               <div className="contact-block-label mono">DIRECT_MAIL</div>
-              <a className="contact-email" href="mailto:cazawi0905@gmail.com">
-                cazawi0905@gmail.com
+              <a className="contact-email" href="mailto:zouheirjd@gmail.com">
+                zouheirjd@gmail.com
               </a>
             </div>
             <div className="contact-block">

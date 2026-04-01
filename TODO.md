@@ -1,10 +1,9 @@
-# Deployment Plan Progress
+# Email Update Task TODO
 
-## Steps:
-- [x] 1. Initialize Git repository and create .gitignore
-- [x] 2. Make initial commit
-- [x] 3. Create GitHub repository (user provides name if custom) and push
-- [x] 4. Install and login to Vercel CLI
-- [x] 5. Test local build
-- [x] 6. Deploy to Vercel
-- [x] 7. Verify live site (https://jmz-portfolio.vercel.app/)
+- [ ] Step 1: Create TODO.md (current)
+- [x] Step 2: Edit src/sections/Contact.jsx (3 replacements: comment, href, link text)
+- [x] Step 3: Edit src/sections/Footer.jsx (2 replacements: href, link text)
+- [x] Step 4: Verify changes (optional search_files)
+- [x] Step 5: Test locally with npm run dev
+- [x] Step 6: Complete task
+
