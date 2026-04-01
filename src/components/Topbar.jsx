@@ -77,7 +77,7 @@ export default function Topbar({ onOpenMenu }) {
           <a
             className="cv-download-btn mono"
             href="/CV.pdf"
-            download="Mohamed_Jaida_CV.pdf"
+download="Zouheir_Jaida_CV.pdf"
             title="Download CV"
           >
             <svg viewBox="0 0 20 20" fill="none" width="13" height="13">
