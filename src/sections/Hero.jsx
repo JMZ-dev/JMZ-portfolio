@@ -6,7 +6,7 @@ export default function Hero() {
 
         <div className="hero-title-block">
           <span className="hero-hi">HI, I&apos;M</span>
-          <span className="hero-firstname">MOHAMED</span>
+<span className="hero-firstname">ZOUHEIR</span>
           <span className="hero-lastname">JAIDA.</span>
         </div>
       </div>
